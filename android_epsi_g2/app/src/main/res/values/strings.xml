@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">android_epsi_g2_first_project</string>
     <string name="main_title">EPSI</string>
+    <string name="btn_info">Info</string>
+    <string name="btn_product">Product</string>
 
 </resources>
