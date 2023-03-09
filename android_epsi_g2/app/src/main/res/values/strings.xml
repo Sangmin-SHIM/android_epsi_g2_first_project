@@ -2,11 +2,21 @@
     <string name="app_name">android_epsi_g2_first_project</string>
     <string name="main_title">EPSI</string>
     <string name="info_title">INFO</string>
+    <string name="student_title">ETUDIANT</string>
+
     <string name="btn_info">Info</string>
-    <string name="btn_product">Product</string>
+    <string name="btn_product">Produit</string>
     <string name="btn_student1">Etudiant 1</string>
     <string name="btn_student2">Etudiant 2</string>
     <string name="btn_student3">Etudiant 3</string>
 
+    <string name="info_student">Info ETUDIANT</string>
 
+    <string name="student1_name">Sangmin SHIM</string>
+    <string name="student2_name">Stanislas CASTAYBERT</string>
+    <string name="student3_name">Begum CETIN</string>
+
+    <string name="info_group">Group 2 AWESOME</string>
+
+    <string name="link_epsi">https://www.epsi.fr</string>
 </resources>

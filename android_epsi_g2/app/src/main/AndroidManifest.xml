@@ -16,6 +16,10 @@
             android:name=".DetailsActivity"
             android:exported="false" />
 
+        <!-- StudentActivity -->
+        <activity
+            android:name=".StudentActivity"
+            android:exported="false" />
         <!-- SplashActivity -->
         <activity
             android:name=".SplashActivity"
