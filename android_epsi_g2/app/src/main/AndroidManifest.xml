@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_epsi_g2_first_project"
         tools:targetApi="31">
+        <!-- DetailsActivity -->
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+
+        <!-- SplashActivity -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -20,6 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MainActivity -->
         <activity
             android:name=".MainActivity"
             android:exported="false">
