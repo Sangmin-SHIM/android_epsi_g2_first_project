@@ -16,6 +16,12 @@
     <string name="student2_name">Stanislas CASTAYBERT</string>
     <string name="student3_name">Begum CETIN</string>
 
+    <string name="student1_mail">sangmin@epsi.fr</string>
+    <string name="student2_mail">stanislas@epsi.fr</string>
+    <string name="student3_mail">begum@epsi.fr</string>
+
+
+
     <string name="info_group">Group 2 AWESOME</string>
 
     <string name="link_epsi">https://www.epsi.fr</string>

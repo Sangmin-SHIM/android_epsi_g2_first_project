@@ -12,7 +12,7 @@
         android:layout_height="wrap_content" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewAvatar"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
@@ -38,16 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:gravity="center"
-            android:text="TextView" />
+            android:gravity="center" />
 
         <TextView
-            android:id="@+id/textEmail"
+            android:id="@+id/textStudentEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
-            android:gravity="center"
-            android:text="TextView" />
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/textGroup"
