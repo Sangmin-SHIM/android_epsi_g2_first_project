@@ -16,7 +16,8 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="1dp"/>
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="1dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -59,6 +60,7 @@
             android:id="@+id/textEpsiLink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="web"
             android:gravity="center"
             android:text="@string/link_epsi" />
 
