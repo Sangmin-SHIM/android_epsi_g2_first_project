@@ -17,5 +17,12 @@ class MainActivity : BaseActivity() {
             val newIntent = Intent(application, DetailsActivity::class.java)
             startActivity(newIntent)
             })
+
+        // Products Button
+        val productInfoBtn = findViewById<Button>(R.id.buttonProduct)
+        productInfoBtn.setOnClickListener(View.OnClickListener() {
+            val newIntent = Intent(application, CategoriesActivity::class.java)
+            startActivity(newIntent)
+        })
     }
 }

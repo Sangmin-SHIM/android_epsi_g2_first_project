@@ -3,6 +3,7 @@
     <string name="main_title">EPSI</string>
     <string name="info_title">INFO</string>
     <string name="student_title">ETUDIANT</string>
+    <string name="products_title">RAYONS</string>
 
     <string name="btn_info">Info</string>
     <string name="btn_product">Produit</string>
