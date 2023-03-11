@@ -1,8 +1,7 @@
-# android_epsi_g2_first_project
+# Projet n°1 Android G2
 
-Gitlab de professeur NIDAL DJEMAM : https://gitlab.com/epsi22-23/b3-dev-full-stack-android
+Gitlab Nidal DJEMAM : https://gitlab.com/epsi22-23/b3-dev-full-stack-android
 ----
-
 
 ## 1. Splash
 
