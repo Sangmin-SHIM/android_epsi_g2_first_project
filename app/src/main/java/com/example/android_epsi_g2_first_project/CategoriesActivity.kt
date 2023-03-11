@@ -1,9 +1,13 @@
 package com.example.android_epsi_g2_first_project
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import org.json.JSONObject
 import java.net.URL
+import java.util.*
+
 
 class CategoriesActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,41 +16,40 @@ class CategoriesActivity : BaseActivity() {
         setHeaderTitle(getString(R.string.products_title))
         showBack()
 
-        getRaysFromWebservice("https://www.ugarit.online/epsi/categories.json");
+        val categoryList = findViewById<ListView>(R.id.categoryList)
+
+        getRayonsFromWebservice { rayList ->
+            runOnUiThread {
+                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, rayList)
+                categoryList.adapter = adapter
+            }
+
+            categoryList.setOnItemClickListener {_, _, position, _ ->
+                val category = rayList[position]
+                val intent = Intent(this, CategoriesActivity::class.java)
+                intent.putExtra("category", category)
+                startActivity(intent)
+            }
+        }
     }
 
-    //Fonction qui récupère les rayons depuis le webservice
-    fun getRaysFromWebservice(url: String): ArrayList<String> {
-        //Déclaration de la liste des rayons
+    private fun getRayonsFromWebservice(callback: (ArrayList<String>) -> Unit) {
         val rayList = ArrayList<String>()
+        Thread {
+            val webServiceURL = URL("https://www.ugarit.online/epsi/categories.json")
 
-        //Création d'un thread séparé pour effectuer l'appel au webservice
-        val thread = Thread {
-            //Création de l'objet URL à partir de l'url passée en paramètre
-            val webServiceURL = URL(url)
-
-            //Récupération du contenu JSON
             val connection = webServiceURL.openConnection()
             val jsonData = connection.inputStream.bufferedReader().readText()
 
-            //Parsing du JSON et récupération des rayons
             val jsonObject = JSONObject(jsonData)
             val rayons = jsonObject.getJSONArray("items")
 
             for (i in 0 until rayons.length()) {
                 val rayon = rayons.getJSONObject(i)
-                val rayonName = rayon.getString("title")
-                rayList.add(rayonName)
+                rayList.add(rayon.getString("title"))
             }
 
-            //Affichage des rayons dans la log
-            for (rayon in rayList) {
-                Log.d("rayon", rayon)
-            }
-        }
-
-        thread.start()
-
-        return rayList
+            callback(rayList)
+        }.start()
     }
 }
