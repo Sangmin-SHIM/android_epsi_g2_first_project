@@ -2,8 +2,10 @@ package com.example.android_epsi_g2_first_project
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.TextView
 import org.json.JSONObject
 import java.net.URL
 import java.util.*
@@ -17,18 +19,32 @@ class CategoriesActivity : BaseActivity() {
         showBack()
 
         val categoryList = findViewById<ListView>(R.id.categoryList)
+        val categoryTitle = findViewById<TextView>(R.id.categoryTitle)
 
-        getRayonsFromWebservice { rayList ->
-            runOnUiThread {
-                val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, rayList)
-                categoryList.adapter = adapter
-            }
+        val activeCategory = intent.getStringExtra("category").toString()
 
-            categoryList.setOnItemClickListener {_, _, position, _ ->
-                val category = rayList[position]
-                val intent = Intent(this, CategoriesActivity::class.java)
-                intent.putExtra("category", category)
-                startActivity(intent)
+        if (activeCategory != "null") {
+            categoryList.visibility = View.GONE
+            categoryTitle.visibility = View.VISIBLE
+
+            categoryTitle.text = activeCategory
+        }
+        else {
+            categoryList.visibility = View.VISIBLE
+            categoryTitle.visibility = View.GONE
+
+            getRayonsFromWebservice { rayList ->
+                runOnUiThread {
+                    val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, rayList)
+                    categoryList.adapter = adapter
+                }
+
+                categoryList.setOnItemClickListener {_, _, position, _ ->
+                    val category = rayList[position]
+                    val intent = Intent(this, CategoriesActivity::class.java)
+                    intent.putExtra("category", category)
+                    startActivity(intent)
+                }
             }
         }
     }
