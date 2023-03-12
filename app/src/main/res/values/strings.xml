@@ -27,4 +27,7 @@
 
     <string name="link_epsi">https://www.epsi.fr</string>
     <string name="categoryTitle">Titre rayon</string>
+    <string name="list_product_title">Nom du produit</string>
+    <string name="list_product_description">Description du produit</string>
+    <string name="product_image_desc">Image du produit</string>
 </resources>
