@@ -58,3 +58,6 @@
 
 <img width="50%" src="https://raw.githubusercontent.com/Sangmin-SHIM/android_epsi_g2_first_project/main/res/CategoriesActivity_ListProducts.png">
 
+## 6.1 Product Details
+
+<img width="50%" src="https://raw.githubusercontent.com/Sangmin-SHIM/android_epsi_g2_first_project/main/res/ProductActivity.png">
