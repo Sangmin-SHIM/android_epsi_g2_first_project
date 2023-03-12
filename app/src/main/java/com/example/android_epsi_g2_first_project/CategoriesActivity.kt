@@ -17,51 +17,60 @@ class CategoriesActivity : BaseActivity() {
         setHeaderTitle(getString(R.string.products_title))
         showBack()
 
-        val categoryList = findViewById<ListView>(R.id.categoryList)
+        val categoryListView = findViewById<ListView>(R.id.categoryList)
 
-        val activeCategory = intent.getStringExtra("category").toString()
+        val activeCategory = intent.getStringExtra("categoryTitle").toString()
 
         if (activeCategory != "null") {
-            categoryList.visibility = View.GONE
+            categoryListView.visibility = View.GONE
 
             setHeaderTitle(activeCategory)
         }
         else {
-            categoryList.visibility = View.VISIBLE
+            categoryListView.visibility = View.VISIBLE
 
-            getRayonsFromWebservice { rayList ->
-                runOnUiThread {
-                    val adapter = ArrayAdapter(this, R.layout.list_categories, rayList)
-                    categoryList.adapter = adapter
+            getListFromWebService("https://www.ugarit.online/epsi/categories.json"){ categories ->
+                val titleList = ArrayList<String>()
+                for (i in 0 until categories.size) {
+                    val item = JSONObject(categories[i].toString())
+                    titleList.add(item.get("title").toString())
                 }
 
-                categoryList.setOnItemClickListener {_, _, position, _ ->
-                    val category = rayList[position]
+                runOnUiThread {
+                    val adapter = ArrayAdapter(this, R.layout.list_categories, titleList)
+                    categoryListView.adapter = adapter
+                }
+
+                categoryListView.setOnItemClickListener { _, _, position, _ ->
+                    val category = JSONObject(categories[position].toString())
                     val intent = Intent(this, CategoriesActivity::class.java)
-                    intent.putExtra("category", category)
+
+                    intent.putExtra("categoryTitle", category.get("title").toString())
+                    intent.putExtra("categoryData", category.toString())
+
                     startActivity(intent)
                 }
             }
         }
     }
 
-    private fun getRayonsFromWebservice(callback: (ArrayList<String>) -> Unit) {
-        val rayList = ArrayList<String>()
+    private fun getListFromWebService(url: String, callback: (ArrayList<Any>) -> Unit) {
+        val categoryList = ArrayList<Any>()
         Thread {
-            val webServiceURL = URL("https://www.ugarit.online/epsi/categories.json")
+            val webServiceURL = URL(url)
 
             val connection = webServiceURL.openConnection()
             val jsonData = connection.inputStream.bufferedReader().readText()
 
             val jsonObject = JSONObject(jsonData)
-            val rayons = jsonObject.getJSONArray("items")
+            val items = jsonObject.getJSONArray("items")
 
-            for (i in 0 until rayons.length()) {
-                val rayon = rayons.getJSONObject(i)
-                rayList.add(rayon.getString("title"))
+            for (i in 0 until items.length()) {
+                val item = items.getJSONObject(i)
+                categoryList.add(item)
             }
 
-            callback(rayList)
+            callback(categoryList)
         }.start()
     }
 }
