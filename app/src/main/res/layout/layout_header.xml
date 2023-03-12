@@ -16,7 +16,7 @@
             android:textSize="32sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:text="Title"
+            android:text="@string/default_title"
             />
 
         <ImageView
