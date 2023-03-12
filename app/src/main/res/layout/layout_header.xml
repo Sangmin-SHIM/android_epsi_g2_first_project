@@ -27,7 +27,8 @@
             android:layout_height="35dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
-            app:srcCompat="@drawable/icon_back" />
+            app:srcCompat="@drawable/icon_back"
+            android:contentDescription="@string/back_icon_desc" />
     </RelativeLayout>
 
 </LinearLayout>
