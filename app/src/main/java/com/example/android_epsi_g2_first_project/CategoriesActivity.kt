@@ -35,7 +35,7 @@ class CategoriesActivity : BaseActivity() {
 
             getRayonsFromWebservice { rayList ->
                 runOnUiThread {
-                    val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, rayList)
+                    val adapter = ArrayAdapter(this, R.layout.list_categories, rayList)
                     categoryList.adapter = adapter
                 }
 
