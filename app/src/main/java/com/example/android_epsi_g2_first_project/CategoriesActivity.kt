@@ -25,6 +25,32 @@ class CategoriesActivity : BaseActivity() {
             categoryListView.visibility = View.GONE
 
             setHeaderTitle(activeCategory)
+            val jsonProductObject = JSONObject(intent.getStringExtra("categoryData").toString())
+
+            getListFromWebService(jsonProductObject.get("products_url").toString()){ products ->
+                val productNameList = ArrayList<String>()
+                for (i in 0 until products.size) {
+                    val item = JSONObject(products[i].toString())
+                    productNameList.add(item.get("name").toString())
+                }
+
+                runOnUiThread {
+                    val adapter = ArrayAdapter(this, R.layout.list_products, R.id.listProductTitle, productNameList)
+                    categoryListView.adapter = adapter
+
+                    categoryListView.visibility = View.VISIBLE
+                }
+
+                categoryListView.setOnItemClickListener { _, _, position, _ ->
+                    val product = products[position].toString()
+
+                    // TODO: Changer la classe pour intégrer l'appel du produit
+                    val intent = Intent(this, CategoriesActivity::class.java)
+                    intent.putExtra("productData", product)
+
+                    startActivity(intent)
+                }
+            }
         }
         else {
             categoryListView.visibility = View.VISIBLE
