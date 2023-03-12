@@ -44,8 +44,7 @@ class CategoriesActivity : BaseActivity() {
                 categoryListView.setOnItemClickListener { _, _, position, _ ->
                     val product = products[position].toString()
 
-                    // TODO: Changer la classe pour intégrer l'appel du produit
-                    val intent = Intent(this, CategoriesActivity::class.java)
+                    val intent = Intent(this, ProductActivity::class.java)
                     intent.putExtra("productData", product)
 
                     startActivity(intent)
