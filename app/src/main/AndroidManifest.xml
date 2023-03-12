@@ -24,6 +24,11 @@
             android:name=".CategoriesActivity"
             android:exported="false" />
 
+        <!-- ProductActivity -->
+        <activity
+            android:name=".ProductActivity"
+            android:exported="false" />
+
         <!-- StudentActivity -->
         <activity
             android:name=".StudentActivity"
