@@ -1,6 +1,15 @@
 # Projet n°1 Android G2
 
-Gitlab Nidal DJEMAM : https://gitlab.com/epsi22-23/b3-dev-full-stack-android
+----
+
+Contributeurs
+
+| Prénom NOM  | Mail  | 
+|---|---|
+| Sangmin SHIM  | sangmin.shim@epsi.fr  |  
+| Stanislas CASTAYBERT | s.castaybert@epsi.fr  |   
+| Begüm CETIN  | begum.cetin@epsi.fr  |   
+
 ----
 
 ## 1. Splash
