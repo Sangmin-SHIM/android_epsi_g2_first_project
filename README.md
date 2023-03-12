@@ -50,10 +50,11 @@
 
 <img width="50%" src="https://user-images.githubusercontent.com/93679283/224399070-c614a991-4d30-4007-89f0-e34d37e53c09.png">
 
-## 5. Categories 
+## 5. Categories List
 
-<img width="50%" src="https://user-images.githubusercontent.com/93679283/224541421-06a9fddf-2cec-4624-8c94-6b97ea171eff.png">
+<img width="50%" src="https://raw.githubusercontent.com/Sangmin-SHIM/android_epsi_g2_first_project/main/res/CategoriesActivity_ListRayons.png">
 
 ## 6. Products List
 
-<img width="50%" src="https://user-images.githubusercontent.com/93679283/224541475-f4e4e059-2422-4923-a8e1-c060ef3e8af9.png">
+<img width="50%" src="https://raw.githubusercontent.com/Sangmin-SHIM/android_epsi_g2_first_project/main/res/CategoriesActivity_ListProducts.png">
+
