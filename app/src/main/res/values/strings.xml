@@ -26,4 +26,5 @@
     <string name="info_group">Group 2 AWESOME</string>
 
     <string name="link_epsi">https://www.epsi.fr</string>
+    <string name="categoryTitle">Titre rayon</string>
 </resources>
