@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.TextView
 import org.json.JSONObject
 import java.net.URL
 import java.util.*
@@ -19,19 +18,16 @@ class CategoriesActivity : BaseActivity() {
         showBack()
 
         val categoryList = findViewById<ListView>(R.id.categoryList)
-        val categoryTitle = findViewById<TextView>(R.id.categoryTitle)
 
         val activeCategory = intent.getStringExtra("category").toString()
 
         if (activeCategory != "null") {
             categoryList.visibility = View.GONE
-            categoryTitle.visibility = View.VISIBLE
 
-            categoryTitle.text = activeCategory
+            setHeaderTitle(activeCategory)
         }
         else {
             categoryList.visibility = View.VISIBLE
-            categoryTitle.visibility = View.GONE
 
             getRayonsFromWebservice { rayList ->
                 runOnUiThread {
